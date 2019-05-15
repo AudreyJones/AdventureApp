@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_14_153421) do
+ActiveRecord::Schema.define(version: 2019_05_15_151454) do
+
+  create_table "adventures", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.integer "franchise_id"
+    t.integer "villain_id"
+    t.integer "hero_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "franchises", force: :cascade do |t|
+    t.string "name"
+    t.string "company"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "heros", force: :cascade do |t|
+    t.string "name"
+    t.text "abilities"
+    t.text "catchphrase"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -20,8 +45,17 @@ ActiveRecord::Schema.define(version: 2019_05_14_153421) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "adventurer_type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "villains", force: :cascade do |t|
+    t.string "name"
+    t.text "abilities"
+    t.text "catchphrase"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
