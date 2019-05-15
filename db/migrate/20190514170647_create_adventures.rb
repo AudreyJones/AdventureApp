@@ -6,7 +6,6 @@ class CreateAdventures < ActiveRecord::Migration[5.2]
       t.integer :franchise_id
       t.integer :villain_id
       t.integer :hero_id
-      t.string :no-test-framework
 
       t.timestamps
     end
