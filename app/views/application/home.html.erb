@@ -1,4 +1,10 @@
-<h1>Welcome, Adventurer</h1>
+<h1>
+    <%if user_logged_in %>
+        Welcome, current_user_first_name
+    <%else%>
+        Welcome, Adventurer
+    <%end%>
+</h1>
 
 <ul>
     <p>New to the guild? <%= link_to "Sign-Up", new_user_registration_path %></p>

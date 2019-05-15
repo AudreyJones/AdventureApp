@@ -10,7 +10,12 @@ Rails.application.routes.draw do
   
   
   devise_scope :user do
-    get 'homepage', to: 'devise/registrations#homepage'
+    get 'homepage', 
+      if user_logged_in
+        to: 'devise/registrations#homepage'
+      else
+        redirect_to root
+      end
   end
   
   

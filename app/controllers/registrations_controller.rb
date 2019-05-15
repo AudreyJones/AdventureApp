@@ -4,6 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
     # def after_sign_out_path_for(users)
     #     redirect_to 'application#home'
     # end
+    def 
 
 private
 
