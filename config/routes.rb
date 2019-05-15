@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :villains
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :villains
   resources :franchises do
     resources :adventures
   end
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   
   
   devise_scope :user do
-    get 'homepage', to: 'devise/registrations#show'
+    get 'homepage', to: 'devise/registrations#homepage'
   end
   
   

@@ -1,1 +1,3 @@
-<h1>User Homepage </h1>
+<h1>Welcome, <%=current_user.first_name+current_user.last_name%></h1>
+
+<p>Would you like to <%= link_to "sign out?", :destroy_user_session%></p>
