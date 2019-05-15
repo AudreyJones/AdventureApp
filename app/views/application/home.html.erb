@@ -1,6 +1,6 @@
 <h1>
-    <%if user_logged_in %>
-        Welcome, current_user_first_name
+    <%if user_signed_in? %>
+        Welcome, <%= current_user.first_name+current_user.last_name %>
     <%else%>
         Welcome, Adventurer
     <%end%>
