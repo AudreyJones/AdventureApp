@@ -1,14 +1,6 @@
 require 'pry'
 class RegistrationsController < Devise::RegistrationsController
 
-    def new
-
-    end
-
-    def dashboard
-        binding.pry
-        @user
-    end
 
 private
 

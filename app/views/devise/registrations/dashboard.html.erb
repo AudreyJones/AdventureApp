@@ -1,9 +1,10 @@
-<h1>Welcome, <%=current_user.first_name+current_user.last_name%></h1>
+<h1>Welcome, <%=current_user.first_name + " " + current_user.last_name%></h1>
 
 <h3>Your Current Adventures:</h3>
 <ul>
     <li><%current_user.adventures.each do |adventure|%>
-        <%= adventure.name %>
+        <%= adventure.name %> - <%= adventure.location %>
     <%end%></li>
 </ul>
-<p>Create a new Adventure?</p>
+
+<p><%= link_to("Create a new Adventure?", new_franchise_adventure_path)%></p>
