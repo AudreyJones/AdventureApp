@@ -4,17 +4,20 @@
     <title>AdventureApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-
-
-    <%= stylesheet_link_tag('application', 'http://yui.yahooapis.com/2.8.1/build/reset/reset-min.css' )%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
   <body>
     <%= render 'layouts/nav' %>
+
+    <div style="margin-left:25%;padding:1px 16px;height:1000px;">
     <%= yield %>
+    </div>
   </body>
 </html>

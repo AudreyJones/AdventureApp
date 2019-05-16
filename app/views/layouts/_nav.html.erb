@@ -1,13 +1,40 @@
-<style>p{display: inline;}</style>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
 
-<div>
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+</style>
+
+<ul>
     <% if !user_signed_in? %>
-        <p><%= link_to("Sign-Up", new_user_registration_path)%> | </p>
-        <p><%= link_to("Login", new_user_session_path)%> | </p>
-        <p><%= link_to("Login with Github", user_github_omniauth_authorize_path) %> </p>
+        <li><%= link_to("Sign-Up", new_user_registration_path)%></li>
+        <li><%= link_to("Login", new_user_session_path)%></li>
+        <li><%= link_to("Login with Github", user_github_omniauth_authorize_path) %> </li>
 
     <% else %>
-        <p><%= link_to('Logout', destroy_user_session_path, method: :delete)%></p>
+        <li><%= link_to('Logout', destroy_user_session_path, method: :delete)%></li>
     <% end %>
     </p>
-</div>
+</ul>
