@@ -1,0 +1,13 @@
+<style>p{display: inline;}</style>
+
+<div>
+    <% if !user_signed_in? %>
+        <p><%= link_to("Sign-Up", new_user_registration_path)%> | </p>
+        <p><%= link_to("Login", new_user_session_path)%> | </p>
+        <p><%= link_to("Login with Github", user_github_omniauth_authorize_path) %> </p>
+
+    <% else %>
+        <p><%= link_to('Logout', destroy_user_session_path, method: :delete)%></p>
+    <% end %>
+    </p>
+</div>
