@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
   
-  devise_scope :user do
-    get 'homepage', to: 'devise/registrations#homepage' 
-  end
+  # devise_scope :user do
+  #   get 'homepage', to: 'devise/registrations#homepage' 
+  # end
   
   resources :villains
   resources :franchises do

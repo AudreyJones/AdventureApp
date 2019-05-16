@@ -2,9 +2,9 @@
 
 
 <ul>
-    <li><%=link_to "Adventures Index", :franchise_adventures%></li>
+    <li><%=link_to "Your Adventures", :franchise_adventures(current_user)</li>
     <li><%=link_to "Franchise Index", :franchises%></li>
-    <li><%=link_to "Create new Adventure!", :new_franchise_adventure%></li>
+    <li><%=link_to "Create new Adventure!", :new_franchise_adventure%></li> %>
 
 </ul>
 
