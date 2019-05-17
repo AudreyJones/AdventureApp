@@ -1,3 +1,4 @@
+require 'pry'
 class AdventuresController < ApplicationController
     
     def index
@@ -5,7 +6,9 @@ class AdventuresController < ApplicationController
     end
     
     def new
-
+        # binding.pry
+        @franchise = Franchise.find_by_id(params[:franchise_id])
+        @adventure = Adventure.new
     end
 
     def create

@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   root "application#home"
 
   resources :franchises do
-    resources :adventures
+    resources :adventures, only: [:index, :show]
   end
 
+  resources :
   resources :villains
 
   devise_for :users, :controllers => { :registration => "registration", :omniauth_callbacks => "callbacks"}
