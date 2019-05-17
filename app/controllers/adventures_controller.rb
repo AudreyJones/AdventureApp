@@ -11,6 +11,10 @@ class AdventuresController < ApplicationController
         @adventure = Adventure.new
     end
 
+    def show
+        @adventure = Adventure.find_by_id(params[:id])
+    end
+
     def create
 
     end

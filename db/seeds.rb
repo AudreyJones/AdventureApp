@@ -26,9 +26,9 @@ Franchise.create(name: "DC Extended Universe", company: "Warner Bros. Pictures")
 Franchise.create(name: "Rat Queens", company: "Darkhorse Comics")
 
 Adventure.create(name: "Endgame", location: "the Universe", franchise: Franchise.first, villain: Villain.fourth, user: User.fourth)
-Adventure.create(name: "The Killing Joke", location: "Gotham", franchise: Franchise.second, villain: Villain.second, user: User.first)
+Adventure.create(name: "The Killing Joke", location: "Gotham City", franchise: Franchise.second, villain: Villain.second, user: User.first)
 Adventure.create(name: "Smallville", location: "Metropolis", franchise: Franchise.second, villain: Villain.first, user: User.second)
-Adventure.create(name: "Sass & Sorcery", location:"medieval realm", franchise: Franchise.third, villain: Villain.third, user: User.third)
+Adventure.create(name: "Sass & Sorcery", location:"Medieval Realm", franchise: Franchise.third, villain: Villain.third, user: User.third)
 
 
 
