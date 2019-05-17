@@ -13,7 +13,7 @@ class AdventuresController < ApplicationController
 
     def create
         # binding.pry
-        @adventure = Adventure.new
+        @adventure = Adventure.new(adventure_params)
         @adventure.name = params[:adventure][:name]
         @adventure.location = params[:adventure][:location]
         @adventure.franchise_id = params[:adventure][:franchise_id]
@@ -32,5 +32,11 @@ class AdventuresController < ApplicationController
 
     def destroy
 
+    end
+
+    private
+
+    def adventure_params
+        params.require(:adventure).permit(:name, :location, :franchise_id, :user_id, :villain_id)
     end
 end

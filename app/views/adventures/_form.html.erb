@@ -1,20 +1,31 @@
 <%= form_for @adventure do |f| %>
-    <%= f.label 'Adventure Name' %>
-    <%= f.text_field :name %>
-<br /> <br />
-    <%= f.label 'Location' %>
-    <%= f.text_field :location %>
-<br /> <br />
-    <%= f.label 'Franchise' %>
-    <%= f.collection_select(:franchise_id, Franchise.all, :id, :name) %> 
+<%= render "devise/shared/error_messages", resource: @adventure %>
 
+    <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    </div>
+<br />
+    <div class="field">
+        <%= f.label :location %><br />
+        <%= f.text_field :location, autofocus: true, autocomplete: "location" %>
+    </div>
+<br />
+    <div class="field">
+        <%= f.label 'Franchise' %><br />
+        <%= f.collection_select(:franchise_id, Franchise.all, :id, :name) %>
+    </div>
+<br />
+    <div class="field">
+        <%= f.label 'Villain' %><br />
+        <%= f.collection_select(:villain_id, Villain.all, :id, :name) %>
+    </div>
+ <br />    
     <% f.label 'Hero' %>
     <% f.hidden_field :user_id, :value => current_user.id %>
-<br /> <br />
-    <%= f.label 'Villain' %>
-    <%= f.collection_select(:villain_id, Villain.all, :id, :name) %> 
-<br /> <br />
-    <%= f.label 'Create Adventure!' %>
-    <%= f.submit 'Create Adventure!'%>
+     
+    <div class="actions">
+        <%= f.submit "Create Adventure" %>
+    </div>
 
 <% end %>
