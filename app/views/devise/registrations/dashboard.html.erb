@@ -1,3 +1,4 @@
+require 'pry'
 <h1>Welcome, <%=current_user.first_name + " " + current_user.last_name%></h1>
 
 <h3>Your Current Adventures:</h3>
@@ -5,6 +6,6 @@
     <li><%current_user.adventures.each do |adventure|%>
         <%= adventure.name %> - <%= adventure.location %>
     <%end%></li>
+    
+    <li><%= link_to("Franchise Index", franchises_path)%></li>
 </ul>
-
-<p><%= link_to("Create a new Adventure?", new_franchise_adventure_path)%></p>

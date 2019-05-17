@@ -1,4 +1,12 @@
 class FranchisesController < ApplicationController
+    def index
+
+    end
+
+    def show
+        @franchise = Franchise.find_by_id(params[:id])
+    end
+    
     def new
 
     end

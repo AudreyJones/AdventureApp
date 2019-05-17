@@ -1,7 +1,7 @@
 <h1>
-    <%if user_signed_in? %>
+    <%if !user_signed_in? %>
         Welcome, Adventurer
     <%else%>
-        Welcome, Adventurer
+        Welcome, <%= current_user.first_name + " " + current_user.last_name %>
     <%end%>
 </h1>

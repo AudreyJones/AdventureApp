@@ -1,0 +1,7 @@
+<h1>Franchise Index</h1>
+
+<ol>
+    <li><%Franchise.all.each do |franchise|%>
+        <%= link_to(franchise.name, franchise_path(franchise))%> - <%= franchise.company %>
+    <%end%></li>
+</ol>
