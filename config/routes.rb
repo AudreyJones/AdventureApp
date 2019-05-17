@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :adventures, only: [:index, :show]
   end
 
-  resources :adventures
+  resources :adventures, only: [:new, :create]
   resources :villains
 
   devise_for :users, :controllers => { :registration => "registration", :omniauth_callbacks => "callbacks"}
