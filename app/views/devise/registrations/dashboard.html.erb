@@ -1,12 +1,10 @@
 require 'pry'
 
-<h1>Welcome, <%=current_user.first_name%></h1>
+<h1>Welcome, <%=current_user.first_name%> <%=current_user.last_name%></h1>
 
 <h3>Your Current Adventures:</h3>
-<ul>
+<ol>
     <li><%current_user.adventures.each do |adventure|%>
         <%= adventure.name %> - <%= adventure.location %>
     <%end%></li>
-
-    Create an adventure
-</ul>
+</ol>

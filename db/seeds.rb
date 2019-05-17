@@ -11,10 +11,10 @@ Villain.destroy_all
 Franchise.destroy_all
 Adventure.destroy_all
 
-batman = User.create(first_name: "Bruce", last_name: "Wayne", email:"thebat@gotham.com", password:"batman", password_confirmation:"batman", abilities: "cool gadgets, money", catchphrase: "I am the hero Gotham needs")
-superman = User.create(first_name: "Clark", last_name: "Kent", email:"S@metro.com", password:"superman", password_confirmation:"superman", abilities: "strength, flight, charming", catchphrase: "I love Lois Lane")
-hannah = User.create(first_name: "Hannah", last_name: "of Necrius", email:"rockabilly@magic.com", password:"hannah", password_confirmation:"hannah", abilities: "arcane magic", catchphrase: "I was just tired, what can I say?")
-thor = User.create(first_name: "Thor", last_name: "God of Thunder", email:"thunder@asgaard.com", password:"thor", password_confirmation:"thor", abilities: "strength, flight, hammer, thunder, lightening", catchphrase: "Do we have more ale?")
+batman = User.create(first_name: "Bruce", last_name: "Wayne", nickname: "Batman", email:"thebat@gotham.com", password:"batman", password_confirmation:"batman", abilities: "cool gadgets, money", catchphrase: "I am the hero Gotham needs")
+superman = User.create(first_name: "Clark", last_name: "Kent", nickname: "Superman", email:"S@metro.com", password:"superman", password_confirmation:"superman", abilities: "strength, flight, charming", catchphrase: "I love Lois Lane")
+hannah = User.create(first_name: "Hannah", last_name: "of Necrius", nickname: "Hannah the Mage", email:"rockabilly@magic.com", password:"hannah", password_confirmation:"hannah", abilities: "arcane magic", catchphrase: "I was just tired, what can I say?")
+thor = User.create(first_name: "Thor", last_name: "God of Thunder", nickname: "Thor", email:"thunder@asgaard.com", password:"thor", password_confirmation:"thor", abilities: "strength, flight, hammer, thunder, lightening", catchphrase: "Do we have more ale?")
 
 loki = Villain.create(name: "Loki", abilities: "trickery, magic", catchphrase: "I should be king of Asgaard")
 joker = Villain.create(name: "Joker", abilities: "insane, bombs", catchphrase: "Hello Bats")
