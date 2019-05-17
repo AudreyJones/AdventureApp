@@ -1,4 +1,9 @@
 <style>
+h1 {
+  display: inline-block;
+
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -11,7 +16,7 @@ ul {
 }
 
 li a {
-  display: block;
+  display: inline-block;
   color: #000;
   padding: 8px 16px;
   text-decoration: none;
@@ -35,5 +40,5 @@ li a:hover:not(.active) {
     <% else %>
         <li><%= link_to('Logout', destroy_user_session_path, method: :delete)%></li>
     <% end %>
-    </p>
+    <li><%= link_to("Franchise Index", franchises_path)%></li>
 </ul>

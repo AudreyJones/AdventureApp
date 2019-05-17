@@ -1,5 +1,6 @@
 require 'pry'
-<h1>Welcome, <%=current_user.first_name + " " + current_user.last_name%></h1>
+
+<h1>Welcome, <%=current_user.first_name%></h1>
 
 <h3>Your Current Adventures:</h3>
 <ul>
@@ -7,5 +8,5 @@ require 'pry'
         <%= adventure.name %> - <%= adventure.location %>
     <%end%></li>
     
-    <li><%= link_to("Franchise Index", franchises_path)%></li>
+    
 </ul>
