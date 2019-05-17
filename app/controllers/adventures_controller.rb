@@ -14,12 +14,18 @@ class AdventuresController < ApplicationController
     def create
         # binding.pry
         @adventure = Adventure.new(adventure_params)
-        @adventure.name = params[:adventure][:name]
-        @adventure.location = params[:adventure][:location]
-        @adventure.franchise_id = params[:adventure][:franchise_id]
-        @adventure.villain_id = params[:adventure][:villain_id]
-    #Need to validate against invalid data!
-        @adventure.save
+        # @adventure.name = params[:adventure][:name]
+        # @adventure.location = params[:adventure][:location]
+        # @adventure.franchise_id = params[:adventure][:franchise_id]
+        # @adventure.villain_id = params[:adventure][:villain_id]
+        binding.pry
+        if !@adventure.valid?
+            flash[:alert]
+        else
+            @adventure.save
+            redirect_to adventure_path(@adventure)
+            
+        end
     end
 
     def show
@@ -37,6 +43,6 @@ class AdventuresController < ApplicationController
     private
 
     def adventure_params
-        params.require(:adventure).permit(:name, :location, :franchise_id, :user_id, :villain_id)
+        params.require(:adventure).permit(:name, :location, :franchise_id, :villain_id)
     end
 end
