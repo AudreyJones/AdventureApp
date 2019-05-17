@@ -5,14 +5,15 @@ Rails.application.routes.draw do
   root "application#home"
 
   resources :franchises do
-    resources :adventures, only: [:index, :show]
+    resources :adventures, only: [:index, :show, :destroy]
   end
 
-  resources :adventures, only: [:new, :create]
+  resources :adventures, only: [:new, :create, :edit]
   resources :villains
 
   devise_for :users, :controllers => { :registration => "registration", :omniauth_callbacks => "callbacks"}
 
+  get 'devise/registrations/dashboard', to: 'application#dashboard', as: '/dashboard'
 
   # devise_scope :user do
   #   get 'dashboard', to: 'devise/registrations#homepage' 

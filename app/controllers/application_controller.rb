@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
             render :home
         end
     end
+
+    def dashboard
+        render '/devise/registrations/dashboard'
+    end
 end

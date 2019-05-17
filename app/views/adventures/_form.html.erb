@@ -1,0 +1,20 @@
+<%= form_for @adventure do |f| %>
+    <%= f.label 'Adventure Name' %>
+    <%= f.text_field :name %>
+<br /> <br />
+    <%= f.label 'Location' %>
+    <%= f.text_field :location %>
+<br /> <br />
+    <%= f.label 'Franchise' %>
+    <%= f.collection_select() %> 
+<br /> <br />
+    <%= f.label 'Hero' %>
+    <%= f.collection_select(:User, Users.all, :user_id, :user.name) %> 
+<br /> <br />
+    <%= f.label 'Villain' %>
+    <%= f.collection_select() %> 
+<br /> <br />
+    <%= f.label 'Submit your Adventure!' %>
+    <%= f.submit %>
+
+<% end %>

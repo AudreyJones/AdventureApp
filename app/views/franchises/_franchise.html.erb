@@ -1,0 +1,14 @@
+require 'pry'</br>
+<h1><%=@franchise.name%> - <%=@franchise.company%></h1>
+
+<ol>
+
+        <% if @franchise.adventures == [] %>
+            Sorry, this franchise doesn't seem to have any adventures right now!
+        <% else %>
+            <% @franchise.adventures.each do |adventure|%>
+                <li><%= adventure.name %> - <%= adventure.location %></li>
+            <% end %>
+        <% end %>
+</ol>
+<%= link_to("Create a new Adventure for this Franchise?", new_adventure_path(@franchise) )%>

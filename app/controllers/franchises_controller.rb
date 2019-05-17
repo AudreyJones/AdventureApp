@@ -5,6 +5,7 @@ class FranchisesController < ApplicationController
 
     def show
         @franchise = Franchise.find_by_id(params[:id])
+        
     end
     
     def new
