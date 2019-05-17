@@ -11,12 +11,19 @@ class AdventuresController < ApplicationController
         @adventure = Adventure.new
     end
 
-    def show
-        @adventure = Adventure.find_by_id(params[:id])
+    def create
+        # binding.pry
+        @adventure = Adventure.new
+        @adventure.name = params[:adventure][:name]
+        @adventure.location = params[:adventure][:location]
+        @adventure.franchise_id = params[:adventure][:franchise_id]
+        @adventure.villain_id = params[:adventure][:villain_id]
+    #Need to validate against invalid data!
+        @adventure.save
     end
 
-    def create
-
+    def show
+        @adventure = Adventure.find_by_id(params[:id])
     end
 
     def edit
