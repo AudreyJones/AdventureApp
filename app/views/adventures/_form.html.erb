@@ -1,6 +1,5 @@
 <%= form_for @adventure do |f| %>
 
-
     <div class="field">
         <%= f.label :name %><br />
         <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
@@ -11,6 +10,11 @@
         <%= f.text_field :location, autofocus: true, autocomplete: "location" %>
     </div>
 <br />
+    <div class="field">
+        <%= f.label :description %><br />
+        <%= f.text_area(:adventure, :description, size: "20x30") %>
+    </div>
+<br />    
     <div class="field">
         <%= f.label 'Franchise' %><br />
         <%= f.collection_select(:franchise_id, Franchise.all, :id, :name) %>

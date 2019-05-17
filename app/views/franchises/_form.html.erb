@@ -9,3 +9,34 @@
     <%= f.submit 'Create Franchise!'%>
 
 <% end %>
+
+<%= form_for @franchise do |f| %>
+
+    <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    </div>
+<br />
+    <div class="field">
+        <%= f.label :company %><br />
+        <%= f.text_field :company, autofocus: true, autocomplete: "company" %>
+    </div>
+<br />
+    <div class="field">
+        <%= f.label 'Franchise' %><br />
+        <%= f.collection_select(:franchise_id, Franchise.all, :id, :name) %>
+    </div>
+<br />
+    <div class="field">
+        <%= f.label 'Villain' %><br />
+        <%= f.collection_select(:villain_id, Villain.all, :id, :name) %>
+    </div>
+ <br />    
+    <% f.label 'Hero' %>
+    <% f.hidden_field :user_id, :value => current_user.id %>
+     
+    <div class="actions">
+        <%= f.submit "Create Adventure" %>
+    </div>
+
+<% end %>
