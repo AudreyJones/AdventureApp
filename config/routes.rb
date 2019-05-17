@@ -4,12 +4,14 @@ Rails.application.routes.draw do
 
   root "application#home"
 
-  devise_for :users, :controllers => { registrations: 'registrations' }
-  
-  resources :villains
   resources :franchises do
     resources :adventures
   end
+
+  resources :villains
+
+  devise_for :users, :controllers => { :registration => "registration", :omniauth_callbacks => "callbacks"}
+
 
   # devise_scope :user do
   #   get 'dashboard', to: 'devise/registrations#homepage' 

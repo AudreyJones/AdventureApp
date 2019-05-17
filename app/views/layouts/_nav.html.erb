@@ -3,7 +3,7 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 25%;
+  width: 15%;
   background-color: #f1f1f1;
   position: fixed;
   height: 100%;
@@ -31,8 +31,7 @@ li a:hover:not(.active) {
     <% if !user_signed_in? %>
         <li><%= link_to("Sign-Up", new_user_registration_path)%></li>
         <li><%= link_to("Login", new_user_session_path)%></li>
-        <li><%= link_to("Login with Github", user_github_omniauth_authorize_path) %> </li>
-
+        <li><%= link_to("Login with Github", user_github_omniauth_authorize_path)%> </li>
     <% else %>
         <li><%= link_to('Logout', destroy_user_session_path, method: :delete)%></li>
     <% end %>
