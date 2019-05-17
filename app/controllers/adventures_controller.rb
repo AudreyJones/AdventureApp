@@ -27,7 +27,7 @@ class AdventuresController < ApplicationController
     end
 
     def edit
-
+        @adventure = Adventure.find_by_id(params[:id])
     end
 
     def destroy

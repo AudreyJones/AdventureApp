@@ -2,6 +2,6 @@
 
 <ol>
     <%Franchise.all.each do |franchise|%>
-        <li><%=link_to(franchise.name,franchise_path(franchise))%> -   <%= franchise.company %></li>
+        <li><%=link_to(franchise.name, franchise_path(franchise))%> -   <%= franchise.company %></li>
     <%end%>
 </ol>

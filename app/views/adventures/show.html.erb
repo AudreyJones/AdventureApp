@@ -1,3 +1,6 @@
+require 'pry'
 <h1><%= @adventure.name %></h1>
 
 <%= render 'adventures/adventure'%>
+
+<%= link_to("Edit this adventure?", edit_adventure_path(@adventure)) %>

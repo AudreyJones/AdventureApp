@@ -25,10 +25,10 @@ Franchise.create(name: "Marvel Cinematic Universe", company: "Marvel Studios")
 Franchise.create(name: "DC Extended Universe", company: "Warner Bros. Pictures")
 Franchise.create(name: "Rat Queens", company: "Darkhorse Comics")
 
-Adventure.create(name: "Endgame", location: "the Universe", franchise: Franchise.first, villain: Villain.fourth, user: User.fourth)
-Adventure.create(name: "The Killing Joke", location: "Gotham City", franchise: Franchise.second, villain: Villain.second, user: User.first)
-Adventure.create(name: "Smallville", location: "Metropolis", franchise: Franchise.second, villain: Villain.first, user: User.second)
-Adventure.create(name: "Sass & Sorcery", location:"Medieval Realm", franchise: Franchise.third, villain: Villain.third, user: User.third)
+Adventure.create(name: "Endgame", location: "the Universe", franchise: Franchise.first, villain: Villain.fourth, user: User.fourth, description: "Thanos plots to rid the universe of half of all living beings!")
+Adventure.create(name: "The Killing Joke", location: "Gotham City", franchise: Franchise.second, villain: Villain.second, user: User.first, description: "Joker attacks Gotham City in a historically sinister way.")
+Adventure.create(name: "Smallville", location: "Metropolis", franchise: Franchise.second, villain: Villain.first, user: User.second, description: "Lex Luthor's corporation plants seeds of corruption in Metropolis.")
+Adventure.create(name: "The Far Reaching Tentacles of N’Rygoth", location:"Medieval Realm", franchise: Franchise.third, villain: Villain.third, user: User.third, description: "Rat Queens try to prevent a vengeful businessman from summoning Dee's people's many-tentacled gods to lay waste to Palisade.")
 
 
 

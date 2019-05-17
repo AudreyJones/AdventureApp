@@ -1,0 +1,11 @@
+<%= form_for @franchise do |f| %>
+    <%= f.label 'Franchise Name' %>
+    <%= f.text_field :name %>
+<br /> <br />
+    <%= f.label 'Company' %>
+    <%= f.text_field :company %>
+<br /> <br />
+    <%= f.label 'Create Franchise!' %>
+    <%= f.submit 'Create Franchise!'%>
+
+<% end %>

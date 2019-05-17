@@ -5,6 +5,7 @@ h1 {
 }
 
 ul {
+  
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -43,4 +44,5 @@ li a:hover:not(.active) {
         <li><%= link_to('Logout', destroy_user_session_path, method: :delete)%></li>
     <% end %>
     <li><%= link_to("Franchise Index", franchises_path)%></li>
+    <li><%= link_to("Adventure Index", adventures_path)%></li>
 </ul>
