@@ -1,30 +1,24 @@
 require 'pry'
 class AdventuresController < ApplicationController
-    
+    # before_action:
     def index
 
     end
     
     def new
-        # binding.pry
         @franchise = Franchise.find_by_id(params[:franchise_id])
         @adventure = Adventure.new
     end
 
     def create
-        # binding.pry
         @adventure = Adventure.new(adventure_params)
-        # @adventure.name = params[:adventure][:name]
-        # @adventure.location = params[:adventure][:location]
-        # @adventure.franchise_id = params[:adventure][:franchise_id]
-        # @adventure.villain_id = params[:adventure][:villain_id]
-        binding.pry
+        # binding.pry
         if !@adventure.valid?
-            flash[:alert]
+            flash[:alert] = "NOPE"
+            render :new
         else
             @adventure.save
             redirect_to adventure_path(@adventure)
-            
         end
     end
 
@@ -37,12 +31,20 @@ class AdventuresController < ApplicationController
     end
 
     def destroy
-
+        # binding.pry
+        @adventure = Adventure.find_by_id(params[:id])
+        @adventure.destroy
+        if @adventure != nil
+            flash[:alert] = "Adventure was not effectively deleted"
+            redirect_to 'adventure_path(@adventure)'
+        else
+            redirect_to 'adventures_path'
+        end
     end
 
     private
 
     def adventure_params
-        params.require(:adventure).permit(:name, :location, :franchise_id, :villain_id)
+        params.require(:adventure).permit(:name, :location, :franchise_id, :user_id, :villain_id)
     end
 end

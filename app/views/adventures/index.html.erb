@@ -5,3 +5,5 @@
         <li><%=link_to(adventure.name, adventure_path(adventure))%> - <%= adventure.location %></li>
     <%end%>
 </ol>
+
+<%= link_to("Create a new Adventure?", new_adventure_path)%>

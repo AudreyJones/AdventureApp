@@ -3,4 +3,4 @@ require 'pry'
 
 <%= render 'adventures/adventure'%>
 
-<%= link_to("Edit this adventure?", edit_adventure_path(@adventure)) %>
+<%= link_to("Edit this adventure?", edit_adventure_path(@adventure)) %> |   <%= link_to("Delete this adventure?", adventure_path(@adventure), method: :delete) %>

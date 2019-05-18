@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root "application#home"
 
   resources :franchises do
-    resources :adventures, only: [:index, :show, :destroy]
+    resources :adventures, only: [:new, :index, :show, :destroy]
   end
 
   resources :adventures

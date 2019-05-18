@@ -23,18 +23,28 @@
     </div>
 <br />
     <div class="field">
+        <%= f.label :description %><br />
+        <%= f.text_area :description, cols: "30", rows: "10" %>
+    </div>
+<br />
+    <div class="field">
         <%= f.label 'Franchise' %><br />
-        <%= f.collection_select(:franchise_id, Franchise.all, :id, :name) %>
+        <% if @franchise != nil %>
+            <%= f.collection_select(:franchise_id, Franchise.all, :id, :name, {selected: @franchise.id}) %>
+        <% else %>
+            <%= f.collection_select(:franchise_id, Franchise.all, :id, :name) %>
+        <% end %>
     </div>
 <br />
     <div class="field">
         <%= f.label 'Villain' %><br />
         <%= f.collection_select(:villain_id, Villain.all, :id, :name) %>
     </div>
- <br />    
+ <br />
+    <div class="field">
     <% f.label 'Hero' %>
-    <% f.hidden_field :user_id, :value => current_user.id %>
-     
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    </div>
     <div class="actions">
         <%= f.submit "Create Adventure" %>
     </div>
