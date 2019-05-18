@@ -1,0 +1,9 @@
+<h1>Evil Index</h1>
+
+<ol>
+    <%Villain.all.each do |villain|%>
+        <li><%=link_to(villain.name, villain_path(villain))%></li>
+    <%end%>
+</ol>
+
+<%= link_to("Create a new Villain?", new_villain_path)%>
