@@ -50,7 +50,7 @@ class AdventuresController < ApplicationController
             flash[:alert] = "Adventure was not effectively deleted"
             redirect_to 'adventure_path(@adventure)'
         else
-            binding.pry
+            # binding.pry
             redirect_to 'adventures_path'
         end
     end

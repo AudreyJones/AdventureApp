@@ -1,6 +1,6 @@
 <% if @adventure == nil %>
-    I'm sorry! This adventure has been deleted.
-<%= link_to("Back to the Adventure Index", adventures_path) %> 
+    flash[:alert] = "I'm sorry! This adventure has been deleted."
+<% render :index %> 
 <% else %>
 <h1><%= @adventure.name %></h1>
 <%= render 'adventures/adventure'%>
