@@ -1,7 +1,9 @@
 
 <h1>Welcome, <%=current_user.first_name%> <%=current_user.last_name%></h1>
-<br/>require 'pry'
-<i>"<%= current_user.catchphrase %>"</i>
+<br/>
+
+<h3>Remember: </h3><i>"<%= current_user.catchphrase %>"</i>
+
 <h3>Your Current Abilities:</h3>
     <ol>
         <%user_abilities(current_user).each do |ability|%>

@@ -30,6 +30,18 @@ class AdventuresController < ApplicationController
         @adventure = Adventure.find_by_id(params[:id])
     end
 
+    def update
+        @adventure = Adventure.find_by_id(params[:id])
+        @adventure.update(adventure_params)
+        if !@adventure.valid?
+            flash[:alert] = "Invalid editing of Adventure"
+            render :show
+        else
+            @adventure.save
+            redirect_to adventure_path(@adventure)
+        end
+    end
+
     def destroy
         # binding.pry
         @adventure = Adventure.find_by_id(params[:id])
@@ -45,6 +57,6 @@ class AdventuresController < ApplicationController
     private
 
     def adventure_params
-        params.require(:adventure).permit(:name, :location, :franchise_id, :user_id, :villain_id)
+        params.require(:adventure).permit(:name, :location, :franchise_id, :user_id, :villain_id, :description)
     end
 end

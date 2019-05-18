@@ -8,7 +8,8 @@ class VillainsController < ApplicationController
     end
     
     def new
-        @villain = Villain.new
+        flash[:alert] = "What are you doing?! You're a HERO, you shouldn't be creating more villains. Job security, I guess."
+        render :index
     end
 
     def create
