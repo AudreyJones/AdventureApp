@@ -1,4 +1,9 @@
+<% if @adventure == nil %>
+    I'm sorry! This adventure has been deleted.
+<%= link_to("Back to the Adventure Index", adventures_path) %> 
+<% else %>
 <h1><%= @adventure.name %></h1>
 <%= render 'adventures/adventure'%>
 <br/>
 <%= link_to("Edit this adventure?", edit_adventure_path(@adventure)) %> |   <%= link_to("Delete this adventure?", adventure_path(@adventure), method: :delete) %>
+<% end %>
