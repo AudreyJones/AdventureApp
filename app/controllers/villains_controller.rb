@@ -2,6 +2,7 @@ class VillainsController < ApplicationController
     def index
 
     end
+    
 
     def show
         @villain = Villain.find_by_id(params[:id])
