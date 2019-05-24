@@ -14,6 +14,21 @@
   </div>
 
   <div class="field">
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :abilities %><br />
+    <%= f.text_field :abilities, autofocus: true, autocomplete: "abilities" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :catchphrase %><br />
+    <%= f.text_field :catchphrase, autofocus: true, autocomplete: "catchphrase" %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>

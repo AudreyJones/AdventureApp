@@ -7,9 +7,9 @@
 <h3>Your Current Abilities:</h3>
     <ol>
         <%user_abilities(current_user).each do |ability|%>
-            <li><%= ability %></li>
+            <li><%= ability%></li>
         <%end%>
-    </ol>
+    </ol> %>
 <h3>Your Current Adventures:</h3>
 <ol>
     <%current_user.adventures.each do |adventure|%>

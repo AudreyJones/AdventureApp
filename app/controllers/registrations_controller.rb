@@ -1,6 +1,6 @@
 require 'pry'
 class RegistrationsController < Devise::RegistrationsController
-
+    
 
 private
 

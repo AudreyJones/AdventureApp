@@ -1,6 +1,6 @@
 require 'pry'
 class AdventuresController < ApplicationController
-    # before_action:
+    before_action :set_adventure, only: [:show, :update, :edit, :destroy]
     def index
 
     end
@@ -44,7 +44,6 @@ class AdventuresController < ApplicationController
 
     def destroy
         # binding.pry
-        @adventure = Adventure.find_by_id(params[:id])
         @adventure.destroy
         if @adventure != nil
             flash[:alert] = "Adventure was not effectively deleted"
@@ -59,5 +58,9 @@ class AdventuresController < ApplicationController
 
     def adventure_params
         params.require(:adventure).permit(:name, :location, :franchise_id, :user_id, :villain_id, :description)
+    end
+
+    def set_adventure
+        @adventure = Adventure.find_by_id(params[:id])
     end
 end

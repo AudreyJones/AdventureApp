@@ -34,7 +34,7 @@ class VillainsController < ApplicationController
     end
     private
 
-    def franchise_params
-        params.require(:villain).permit(:name, :abilities, :catchphrase)
-    end
+    # def franchise_params
+    #     params.require(:villain).permit(:name, :abilities, :catchphrase)
+    # end
 end
