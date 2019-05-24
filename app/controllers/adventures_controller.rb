@@ -14,6 +14,7 @@ class AdventuresController < ApplicationController
         @adventure = Adventure.new(adventure_params)
         # binding.pry
         if !@adventure.valid?
+            # Utilize .errors to access errors and post via alerts! Then send us to a page where we can try again.
             flash[:alert] = "NOPE"
             render :new
         else
