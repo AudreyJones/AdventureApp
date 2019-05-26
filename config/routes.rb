@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   #   get 'dashboard', to: 'devise/registrations#homepage' 
   # end
   
+  resources :users, only: [:edit, :update]
 end

@@ -6,13 +6,23 @@ class AdventuresController < ApplicationController
     end
     
     def new
-        @franchise = Franchise.find_by_id(params[:franchise_id])
-        @adventure = Adventure.new
+        if !user_signed_in?
+            flash[:alert] = "I'm sorry, please log in the create an adventure!"
+            redirect_to root_path
+        # elsif 
+            # Coming through directly - adventures_index
+        else
+            # Coming through the Franchise Index
+            @franchise = Franchise.find_by_id(params[:franchise_id])
+            @adventure = @franchise.adventures.build
+        end
     end
 
     def create
-        @adventure = Adventure.new(adventure_params)
         # binding.pry
+        @franchise = Franchise.find_by_id(params[:adventure][:franchise_id])
+        @adventure = @franchise.adventures.build(adventure_params)
+        
         if !@adventure.valid?
             # Utilize .errors to access errors and post via alerts! Then send us to a page where we can try again.
             flash[:alert] = "NOPE"
@@ -44,15 +54,14 @@ class AdventuresController < ApplicationController
     end
 
     def destroy
-        # binding.pry
+        # Resolve logic to deal with situations
         @adventure.destroy
-        if @adventure != nil
-            flash[:alert] = "Adventure was not effectively deleted"
-            redirect_to 'adventure_path(@adventure)'
-        else
-            # binding.pry
-            redirect_to 'adventures_path'
-        end
+        # if @adventure != nil 
+        #     flash[:alert] = "Adventure was not effectively deleted"
+        #     render :show
+        # else
+            redirect_to adventures_path, notice: "Your adventure was deleted!"
+        # end
     end
 
     private

@@ -38,10 +38,11 @@ li a:hover:not(.active) {
         <li><%= link_to("Sign-Up", new_user_registration_path)%></li>
         <li><%= link_to("Login", new_user_session_path)%></li>
         <li><%= link_to("Login with Github", user_github_omniauth_authorize_path)%> </li>
-        
     <% else %>
         <li><%= link_to("Back to my Dashboard", dashboard_path)%> </li>
         <li><%= link_to('Logout', destroy_user_session_path, method: :delete)%></li>
+        <li><%= link_to("Edit my Account", edit_user_path(current_user))%></li>
+        <li><%= link_to("Terminate my Account", user_registration_path, method: :delete)%></li>
     <% end %>
     <li><%= link_to("Franchise Index", franchises_path)%></li>
     <li><%= link_to("Adventure Index", adventures_path)%></li>
