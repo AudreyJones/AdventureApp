@@ -9,10 +9,9 @@ class AdventuresController < ApplicationController
         if !user_signed_in?
             flash[:alert] = "I'm sorry, please log in the create an adventure!"
             redirect_to root_path
-        # elsif 
-            # Coming through directly - adventures_index
-        else
-            # Coming through the Franchise Index
+        # elsif # Coming through directly - adventures_index
+
+        else # Coming through the Franchise Index
             @franchise = Franchise.find_by_id(params[:franchise_id])
             @adventure = @franchise.adventures.build
         end
@@ -54,7 +53,7 @@ class AdventuresController < ApplicationController
     end
 
     def destroy
-        # Resolve logic to deal with situations
+        # Resolve logic to deal with different situations
         @adventure.destroy
         # if @adventure != nil 
         #     flash[:alert] = "Adventure was not effectively deleted"
