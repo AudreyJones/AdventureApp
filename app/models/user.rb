@@ -4,13 +4,17 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:github]
-  # validates :name, presence: true
-  # validates :abilities, presence: true
-  # validates :catchphrase, presence: true
+# Associations
   has_many :adventures
   has_many :villains, through: :adventures
   has_many :franchises, through: :adventures
 
+# Validations
+  # validates :name, presence: true
+  # validates :abilities, presence: true
+  # validates :catchphrase, presence: true
+
+# OmniAuth class-method
   def self.from_omniauth(auth)
     # binding.pry
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
