@@ -21,9 +21,11 @@ class AdventuresController < ApplicationController
         @adventure = @franchise.adventures.build(adventure_params)
         
         if !@adventure.valid?
-            # Utilize .errors to access errors and post via alerts! Then send us to a page where we can try again.
-            flash[:alert] = "NOPE"
-            render :new
+            errors = []
+            @adventure.errors.full_messages.each do |msg|
+                errors << msg
+            end
+            redirect_to new_adventure_path, alert: errors.join(", ")
         else
             @adventure.save
             redirect_to adventure_path(@adventure)
