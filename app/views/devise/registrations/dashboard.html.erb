@@ -2,8 +2,8 @@
 <h1>Welcome, <%=current_user.first_name%> <%=current_user.last_name%></h1>
 <br/>
 
-<h3>Remember: </h3><i>"<%= current_user.catchphrase %>"</i>
-<h3>Nickname: <%=current_user.nickname%></h3>
+<h3>Remember: <i>"<%= current_user.catchphrase %>"</i></h3>
+<h3>Nickname: <%=current_user.nickname%> </h3>
 <h3>Your Current Abilities:</h3>
     <ol>
         <%user_abilities(current_user).each do |ability|%>
