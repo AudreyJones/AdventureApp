@@ -2,7 +2,7 @@
 
 <ol>
     <%Villain.all.each do |villain|%>
-        <li><%=link_to(villain.name, villain_path(villain))%></li>
+        <li><%=link_to(villain.name, villain_path(villain))%> - <%= villain.abilities%></li>
     <%end%>
 </ol>
 
