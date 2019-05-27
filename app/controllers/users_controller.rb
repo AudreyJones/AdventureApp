@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
     def update
         @user = current_user
-        # binding.pry
         @user.update(special_user_params)
         render '/devise/registrations/dashboard'
     end
@@ -14,7 +13,7 @@ class UsersController < ApplicationController
     private
 
     def special_user_params
-        params.require(:user).permit(:catchphrase, :abilities)
+        params.require(:user).permit(:catchphrase, :abilities, :nickname)
     end
 
 end

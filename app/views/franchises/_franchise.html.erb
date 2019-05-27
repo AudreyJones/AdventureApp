@@ -5,7 +5,7 @@
             Sorry, this franchise doesn't seem to have any adventures right now!
         <% else %>
             <% @franchise.adventures.each do |adventure|%>
-                <li><%= adventure.name %> - <%= adventure.location %></li>
+                <li><%= link_to(adventure.name, adventure_path(adventure))%> - <%= adventure.location%></li>
             <% end %>
         <% end %>
 </ol>

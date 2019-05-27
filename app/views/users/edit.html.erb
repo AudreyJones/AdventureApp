@@ -1,6 +1,9 @@
 <h1>Edit My Account</h1>
 
 <%= form_for @user do |f| %>
+    <%= f.label 'Nickname' %>
+    <%= f.text_field :nickname %>
+<br /> <br />
     <%= f.label 'Catchphrase' %>
     <%= f.text_field :catchphrase %>
 <br /> <br />

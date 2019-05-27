@@ -20,6 +20,7 @@ class User < ApplicationRecord
     user.provider = auth.provider
     user.first_name = auth.info.name
     user.last_name = " "
+    user.nickname = "Edit your account to add a nickname"
     user.uid = auth.uid
     user.abilities = "Edit your account to add abilities"
     user.catchphrase = "Edit your account to add a catchphrase"
