@@ -51,14 +51,8 @@ class AdventuresController < ApplicationController
     end
 
     def destroy
-        # Resolve logic to deal with different situations
         @adventure.destroy
-        # if @adventure != nil 
-        #     flash[:alert] = "Adventure was not effectively deleted"
-        #     render :show
-        # else
-            redirect_to adventures_path, notice: "Your adventure was deleted!"
-        # end
+        redirect_to adventures_path, notice: "Your adventure was deleted!"
     end
 
     private
