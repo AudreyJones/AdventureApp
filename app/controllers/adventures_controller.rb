@@ -1,4 +1,3 @@
-require 'pry'
 class AdventuresController < ApplicationController
     before_action :set_adventure, only: [:show, :update, :edit, :destroy]
     def index
@@ -9,9 +8,10 @@ class AdventuresController < ApplicationController
         if !user_signed_in?
             flash[:alert] = "I'm sorry, please log in the create an adventure!"
             redirect_to root_path
-        # elsif # Coming through directly - adventures_index
-
-        else # Coming through the Franchise Index
+        elsif user_signed_in? && !(params.include?(:franchise_id))# Coming through directly - adventures index
+            # binding.pry
+            @adventure = Adventure.new
+        else # Coming through indirectly - Franchise Index
             @franchise = Franchise.find_by_id(params[:franchise_id])
             @adventure = @franchise.adventures.build
         end
