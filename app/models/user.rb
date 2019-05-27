@@ -21,7 +21,7 @@ class User < ApplicationRecord
     user.first_name = auth.info.name
     user.last_name = " "
     user.uid = auth.uid
-    user.abilities = "Edit your account to add abilities!"
+    user.abilities = "Edit your account to add abilities"
     user.catchphrase = "Edit your account to add a catchphrase"
     user.email = auth.info.email
     user.password = Devise.friendly_token[0,20]

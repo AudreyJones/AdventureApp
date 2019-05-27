@@ -9,7 +9,6 @@ class AdventuresController < ApplicationController
             flash[:alert] = "I'm sorry, please log in the create an adventure!"
             redirect_to root_path
         elsif user_signed_in? && !(params.include?(:franchise_id))# Coming through directly - adventures index
-            # binding.pry
             @adventure = Adventure.new
         else # Coming through indirectly - Franchise Index
             @franchise = Franchise.find_by_id(params[:franchise_id])
@@ -18,7 +17,6 @@ class AdventuresController < ApplicationController
     end
 
     def create
-        # binding.pry
         @franchise = Franchise.find_by_id(params[:adventure][:franchise_id])
         @adventure = @franchise.adventures.build(adventure_params)
         
@@ -33,15 +31,13 @@ class AdventuresController < ApplicationController
     end
 
     def show
-        @adventure = Adventure.find_by_id(params[:id])
     end
 
     def edit
-        @adventure = Adventure.find_by_id(params[:id])
+
     end
 
     def update
-        @adventure = Adventure.find_by_id(params[:id])
         @adventure.update(adventure_params)
         if !@adventure.valid?
             flash[:alert] = "Invalid editing of Adventure"
