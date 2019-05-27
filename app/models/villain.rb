@@ -8,6 +8,6 @@ class Villain < ApplicationRecord
     validates :abilities, presence: true
     validates :catchphrase, presence: true
 
-    # Possible select for villains with a certain ability
-    scope :franchise, -> (villain) {joins.(:adventures).where('adventures.villains = ?', villain)}
+# Group Villains with a certain ability, or maybe alphabetically?
+    scope :ability, -> (villain) {joins.(:adventures).where('adventures.villains = ?', villain)}
 end
