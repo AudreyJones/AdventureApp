@@ -1,7 +1,13 @@
 <h1>Evil Index</h1>
 
+<h4>Search by Abilities: </h4>
+<%= form_tag(villains_path, method: :get) do%>
+    <%= text_field_tag(:search, params[:search])%>
+    <%= submit_tag ("Search") %>
+<%end%>
+
 <ol>
-    <%Villain.all.each do |villain|%>
+    <%@villains.each do |villain|%>
         <li><%=link_to(villain.name, villain_path(villain))%> - <%= villain.abilities%></li>
     <%end%>
 </ol>

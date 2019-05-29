@@ -2,7 +2,7 @@ class VillainsController < ApplicationController
     before_action :set_villain, only: [:show]
 
     def index
-
+        @villains = Villain.search(params[:search])
     end
     
 
@@ -19,6 +19,10 @@ class VillainsController < ApplicationController
     end
 
     private
+
+    def villain_params
+        params.require(:villain).permit(:name, :abilities, :catchphrase, :search)
+    end
 
     def set_villain
         @villain = Villain.find_by_id(params[:id])
