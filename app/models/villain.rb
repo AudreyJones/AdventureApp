@@ -11,17 +11,13 @@ class Villain < ApplicationRecord
 # Group Villains with a certain ability, or maybe alphabetically?
     # scope :ability, -> (villain) {joins.(:adventures).where('adventures.villains = ?', villain)}
     def self.search(search)
+        # binding.pry
         if search
-            @villains = self.where('abilities LIKE ?', search)
-            binding.pry
-            # @villains = Villain.find_by(abilities)
-            # if abilities
-            #     self.where(abilities: abilities)
-            # else
-            #     Villain.all
-            # end
+            @villains = self.where('abilities like ?', "%#{search}%")
+        elsif search == nil
+            @villains = Villain.all
         else
-            Villain.all
+            @villains = Villain.all
         end
     end
 end
