@@ -1,0 +1,19 @@
+<h1>Search Adventures & Villains:</h1>
+
+<h4>Search by Name: </h4>
+<%= form_tag(search_path, method: :get) do%>
+    <%= text_field_tag(:search, params[:search])%>
+    <%= submit_tag ("Search") %>
+<%end%>
+
+<ol>
+    <%@search.each do |result|%>
+        <% if result.class == Adventure %>
+            <li><%=link_to(result.name, adventure_path(result))%></li>
+        <% else result.class == Villain %>
+            <li><%=link_to(result.name, villain_path(result))%></li>
+        <% end %>
+    <%end%>
+</ol>
+
+<%= link_to("Create a new Villain?", new_villain_path)%>

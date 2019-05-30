@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
         render '/devise/registrations/dashboard'
     end
 
+    def search
+        @search = Villain.name_search(params[:search]) + Adventure.search(params[:search])
+    end
+
     def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :nickname, :abilities, :catchphrase])
     end

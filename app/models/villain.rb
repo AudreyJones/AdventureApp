@@ -20,4 +20,15 @@ class Villain < ApplicationRecord
             @villains = Villain.all
         end
     end
+
+    def self.name_search(search)
+        # binding.pry
+        if search
+            @villains = self.where('name like ?', "%#{search}%")
+        elsif search == nil
+            @villains = Villain.all
+        else
+            @villains = Villain.all
+        end
+    end
 end

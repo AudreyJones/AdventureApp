@@ -16,10 +16,11 @@
     </div>
 <br />
     <div class="field">
-        <%= f.label 'Franchise' %><br />
         <% if @franchise != nil %>
-            <%= f.collection_select(:franchise_id, Franchise.all, :id, :name, {selected: @franchise.id}) %>
+            <%= f.label "#{@franchise.name} Franchise"%>
+            <%= f.hidden_field :franchise_id, :value => @franchise.id %>
         <% else %>
+            <%= f.label 'Franchise' %><br />
             <%= f.collection_select(:franchise_id, Franchise.all, :id, :name) %>
         <% end %>
     </div>

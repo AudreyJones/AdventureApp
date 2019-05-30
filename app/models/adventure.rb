@@ -7,9 +7,16 @@ class Adventure < ApplicationRecord
     belongs_to :villain
 
 
-    # Examples of Scope Methods:
-    # scope :order_by_date, -> {order("created_at  ?")}
-    # scope :created_search, -> (search_date) {where("created_at = ?", search_date)}
+    def self.search(search)
+        # binding.pry
+        if search
+            @adventures = self.where('name like ?', "%#{search}%")
+        elsif search == nil
+            @adventures = Adventure.all
+        else
+            @adventures = Adventure.all
+        end
+    end
 
     
 end

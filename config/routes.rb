@@ -15,9 +15,9 @@ Rails.application.routes.draw do
 
   get 'devise/registrations/dashboard', to: 'application#dashboard', as: '/dashboard'
 
-  # devise_scope :user do
-  #   get 'dashboard', to: 'devise/registrations#homepage' 
-  # end
+  
+  get 'search', to: 'application#search' , as: 'search'
+  
   
   resources :users, only: [:edit, :update]
 end
