@@ -1,7 +1,9 @@
 class Adventure < ApplicationRecord
+# Validations
     validates :name, presence: true
     validates :location, presence: true
     validates :description, presence: true
+# Associations
     belongs_to :franchise
     belongs_to :user
     belongs_to :villain
