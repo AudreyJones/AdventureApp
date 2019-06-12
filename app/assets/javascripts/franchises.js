@@ -1,28 +1,30 @@
 document.addEventListener("turbolinks:load", function() {
     $(function () {
     console.log("LOADED: franchise.js")
-    listenForHover()
+    listenForClick()
     });
 
 // Use JSON data to generate JSON items
-function listenForHover() {
-    $("a").on('mouseover', function (event) {
+function listenForClick() {
+    $("a").one('click', function (event) {
         event.preventDefault()
-        getFranchise()
+        $('div#drop_down').remove()
+        var id = this.id
+        getFranchise(id)
     })
 }
 
 
-function getFranchise() {
+function getFranchise(id) {
     $.ajax({
-        url:'http://localhost:3000/franchises',
+        url:`http://localhost:3000/franchises/${id}`,
         method: 'get',
         dataType: 'json'
     }).done(function (data) {
-        console.log("The data is: ", data)
-        let myFranchise = new Franchise(data[0])
+        console.log("This franchise is: ", data)
+        let myFranchise = new Franchise(data)
         let myFranchiseHTML = myFranchise.postHTML()
-        document.querySelector(`div#${id}`).innerHTML += myFranchiseHTML
+        $(`div#${id}`).append(myFranchiseHTML)
     })
 }
 
@@ -35,14 +37,14 @@ class Franchise {
         this.id = obj.id
         this.name = obj.name
         this.company = obj.company
-        allFranchises << obj
+        allFranchises << this
     }
 }
 
 //Fancy Prototype method to format Franchise JS Object's HTML!
 Franchise.prototype.postHTML = function () {
     return (`
-    <div>
+    <div id='drop_down'>
         <h3>${this.name}</h3>
         <p>${this.company}</p>
     </div>
