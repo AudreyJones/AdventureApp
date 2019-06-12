@@ -3,11 +3,18 @@ class VillainsController < ApplicationController
 
     def index
         @villains = Villain.search(params[:search])
+        respond_to do |format|
+            format.html { render :index }
+            format.json { render json: @villains }
+        end
     end
     
 
     def show
-        
+        respond_to do |format|
+            format.html { render :index }
+            format.json { render json: @villain}
+        end
     end
     
     def new

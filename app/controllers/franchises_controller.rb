@@ -9,7 +9,10 @@ class FranchisesController < ApplicationController
     end
 
     def show
-    
+        respond_to do |format|
+            format.html { render :index }
+            format.json { render json: @franchise }
+        end
     end
     
     private

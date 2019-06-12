@@ -1,7 +1,11 @@
 class AdventuresController < ApplicationController
     before_action :set_adventure, only: [:show, :update, :edit, :destroy]
     def index
-
+        @adventures = Adventure.all
+        respond_to do |format|
+            format.html { render :index }
+            format.json { render json: @adventures }
+        end
     end
     
     def new
