@@ -14,24 +14,21 @@ function listenForClick() {
     })
 }
 
-
+// AJAX get request to pull data from database in JSON format, create new JS object, and append to DOM(show)
 function getAdventure(id) {
     $.ajax({
         url:`http://localhost:3000/adventures/${id}`,
         method: 'get',
         dataType: 'json'
     }).done(function (data) {
-        // debugger
         console.log("This adventure is: ", data)
-        // debugger
         let myAdventure = new Adventure(data)
         let myAdventureHTML = myAdventure.postHTML()
         $(`div#${id}`).append(myAdventureHTML)
     })
 }
 
-// We are turning our JSON retrieved data and turning it into a JS Object in order to organize
-// and access the object more quickly for rendering dynamic JS
+// Adventure JS Object Factory
 class Adventure {
     constructor(obj) {
         // debugger
@@ -41,7 +38,7 @@ class Adventure {
     }
 }
 
-//Fancy Prototype method to format Adventure JS Object's HTML!
+//Fancy Prototype method to format Adventure JS Object's HTML for DOM reveal/show
 Adventure.prototype.postHTML = function () {
     return (`
     <div id='drop_down'>
@@ -51,51 +48,68 @@ Adventure.prototype.postHTML = function () {
     `)
 }
 
-Adventure.prototype.adventureNewForm = function () {
+// Prototype method to reveal new Adventure Form and pass to factory 
+Adventure.prototype.newAdventureForm = function () {
+    // Upon clicking "Create new Adventure" button...
+    $("a#new_adv").on('click', function (event) {
+    // Show me the new Adventure Form!
     return (`
+    <div id='adv_form'>
         <strong>New Adventure Form: </strong>
-        <form_for @adventure do |f|>
-            <div class="field">
-                < f.label :name %><br />
-                < f.text_field :name, autofocus: true, autocomplete: "name" >
-            </div>
-            <br />
-            <div class="field">
-                < f.label :location ><br />
-                < f.text_field :location, autofocus: true, autocomplete: "location" >
-            </div>
-            <br />
-            <div class="field">
-                < f.label :description ><br />
-                < f.text_area :description, cols: "30", rows: "10" >
-            </div>
-            <br />
-            <div class="field">
-                < if @franchise != nil >
-                    < f.label "#{@franchise.name} Franchise">
-                    < f.hidden_field :franchise_id, :value => @franchise.id >
-                < else >
-                    < f.label 'Franchise' ><br />
-                    < f.collection_select(:franchise_id, Franchise.all, :id, :name) >
-                < end >
-            </div>
-            <br />
-            <div class="field">
-                < f.label 'Villain' ><br />
-                < f.collection_select(:villain_id, Villain.all, :id, :name) >
-            </div>
-            <br />
-            <div class="field">
-            < f.label 'Hero' >
-            < f.hidden_field :user_id, :value => current_user.id >
-            </div>
-            <div class="actions">
-                < f.submit "Create Adventure" >
-            </div>
-        <% end %>
+
+
+    </div>
     `)
+}}
+
+
+
+
+// Adventure.prototype.adventureNewForm = function () {
+//     return (`
+//         <strong>New Adventure Form: </strong>
+//         <form_for @adventure do |f|>
+//             <div class="field">
+//                 < f.label :name %><br />
+//                 < f.text_field :name, autofocus: true, autocomplete: "name" >
+//             </div>
+//             <br />
+//             <div class="field">
+//                 < f.label :location ><br />
+//                 < f.text_field :location, autofocus: true, autocomplete: "location" >
+//             </div>
+//             <br />
+//             <div class="field">
+//                 < f.label :description ><br />
+//                 < f.text_area :description, cols: "30", rows: "10" >
+//             </div>
+//             <br />
+//             <div class="field">
+//                 < if @franchise != nil >
+//                     < f.label "#{@franchise.name} Franchise">
+//                     < f.hidden_field :franchise_id, :value => @franchise.id >
+//                 < else >
+//                     < f.label 'Franchise' ><br />
+                    // < f.collection_select(:franchise_id, Franchise.all, :id, :name) >
+//                 < end >
+//             </div>
+//             <br />
+//             <div class="field">
+//                 < f.label 'Villain' ><br />
+//                 < f.collection_select(:villain_id, Villain.all, :id, :name) >
+//             </div>
+//             <br />
+//             <div class="field">
+//             < f.label 'Hero' >
+//             < f.hidden_field :user_id, :value => current_user.id >
+//             </div>
+//             <div class="actions">
+//                 < f.submit "Create Adventure" >
+//             </div>
+//         <% end %>
+//     `)
     
-}
+// }
 
 
 

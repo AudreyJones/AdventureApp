@@ -18,6 +18,8 @@
             background: url(https://images.unsplash.com/photo-1553447977-754f9430685c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80) center no-repeat;
             background-size: cover;
             background-attachment: fixed;
+            margin: 0;
+            padding: 0
           }
           .wrapper {
             background-color: rgb(0, 0, 0, 0.25);
@@ -27,10 +29,15 @@
             padding: 4%;
             font: 15px arial, sans-serif;
           }
+
+          ul {
+            margin-top : 0;
+            padding: 0;
+          }
         </style>
   <body>
     <%= render 'layouts/nav' %>
-    <div style="margin-left:25%;padding:1px 16px;height:1000px;">
+    <div style="margin-left:25%;padding:1px 0px;height:1000px;">
     <div class="wrapper"><%= yield %></div>
     </div>
     
