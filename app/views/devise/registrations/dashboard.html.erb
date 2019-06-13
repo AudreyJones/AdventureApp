@@ -14,6 +14,6 @@
 <ol>
     <%current_user.adventures.each do |adventure|%>
     
-        <li><%= link_to(adventure.name, adventure_path(adventure)) %> - <%= adventure.location %></li>
+        <li><%= link_to(adventure.name, adventure_path(adventure), class:'curr') %> - <%= adventure.location %></li>
     <%end%>
 </ol>
