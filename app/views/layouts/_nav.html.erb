@@ -44,7 +44,7 @@ li a:hover:not(.active) {
         <li><%= link_to("Edit my Account", edit_user_path(current_user))%></li>
         <li><%= link_to("Terminate my Account", user_registration_path, method: :delete)%></li>
     <% end %>
-    <li><%= link_to("Franchise Index", franchises_path, class:'nav', id:'franchises')%></li>
+    <li class='nav', id='franchises'>Franchise Index</li>
     <li><%= link_to("Adventure Index", adventures_path, class:'nav', id:'adventures')%></li>
     <li><%= link_to("Villain Index", villains_path, class:'nav', id:'villains')%></li>
     <li><%= link_to("General Search", search_path)%></li>

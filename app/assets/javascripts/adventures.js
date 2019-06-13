@@ -49,18 +49,18 @@ Adventure.prototype.postHTML = function () {
 }
 
 // Prototype method to reveal new Adventure Form and pass to factory 
-Adventure.prototype.newAdventureForm = function () {
-    // Upon clicking "Create new Adventure" button...
-    $("a#new_adv").on('click', function (event) {
-    // Show me the new Adventure Form!
-    return (`
-    <div id='adv_form'>
-        <strong>New Adventure Form: </strong>
+// Adventure.prototype.newAdventureForm = function () {
+//     // Upon clicking "Create new Adventure" button...
+//     $("a#new_adv").on('click', function (event) {
+//     // Show me the new Adventure Form!
+//     return (`
+//     <div id='adv_form'>
+//         <strong>New Adventure Form: </strong>
 
 
-    </div>
-    `)
-}}
+//     </div>
+//     `)
+// }
 
 
 

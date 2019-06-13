@@ -6,22 +6,24 @@ document.addEventListener("turbolinks:load", function() {
 
 function listenForAction() {
     // if User hovers over button, flashIndex()
-        if ($("a.nav").on("mouseover")
-            function (event) {
-                event.preventDefault()
-                $('div#drop_down').remove()
-                var index_name = this.id
-                flashIndex(index_name)
-            } else {
+        // $('a.nav').on("mouseover", function (event) {
+        //         event.preventDefault()
+        //         // debugger
+        //         $('div#drop_down').remove()
+        //         var index_name = this.id
+        //         flashIndex(index_name)
+        // })      
+
     // Else, User clicks button, showIndex()
-            $("a.nav").on("click", function (event) {
+            $("li.nav").on("click", function (event) {
                 event.preventDefault()
-                $('div#drop_down').remove()
+                // debugger
+                // $(content).
                 var index_name = this.id
                 showIndex(index_name)
             })
-        }
-}
+        }      
+
 
 function flashIndex(index_name) {
     $.ajax({
@@ -31,7 +33,7 @@ function flashIndex(index_name) {
     }).done(function (data) {
         console.log("This index contains: ", data)
         document.getElementsByClassName("wrapper")
-        debugger
+        // debugger
         //We wouldn't want to make an index model, unless it speeds things up?
         // let myAdventure = new Adventure(data)
         let thisIndexView;
@@ -50,16 +52,18 @@ function showIndex(index_name) {
         dataType: 'json'
     }).done(function (data) {
         console.log("This index contains: ", data)
+        let content = ""
+        data.forEach(function (franchise) {
+            content += `<div id="${franchise.id}"><a>${franchise.name}</a></div>`
+        })
 
         //We wouldn't want to make an index model, unless it speeds things up?
         // let myAdventure = new Adventure(data)
-        let thisIndexView;
+        // let thisIndexView;
 
 
         // replace current wrapper div with Index!
-        $(`div.wrapper`).append(`
-            <><>
-        `)
+        $(`div.wrapper`).html(content)
     })
 }
 
@@ -71,11 +75,6 @@ class Index {
         this.location = obj.location
     }
 }
-
-
-
-
-
 
 })
 
