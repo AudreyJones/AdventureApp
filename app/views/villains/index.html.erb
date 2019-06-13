@@ -8,7 +8,7 @@
 
 <ol>
     <%@villains.each do |villain|%>
-        <li><%=link_to(villain.name, villain_path(villain))%> - <%= villain.abilities%></li>
+        <div id="<%= villain.id %>"><li><%=link_to(villain.name, villain_path(villain), id:villain.id, class:'vill')%> - <%= villain.abilities%></li></div>
     <%end%>
 </ol>
 
