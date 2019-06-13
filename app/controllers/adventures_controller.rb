@@ -39,7 +39,7 @@ class AdventuresController < ApplicationController
     def show
         respond_to do |format|
             format.html { render :show }
-            format.json { render json: @adventures }
+            format.json { render json: @adventure }
         end
     end
 

@@ -6,7 +6,7 @@ document.addEventListener("turbolinks:load", function() {
 
 // Use JSON data to generate JSON items
 function listenForClick() {
-    $("a").one('click', function (event) {
+    $("a.fran").on('click', function (event) {
         event.preventDefault()
         $('div#drop_down').remove()
         var id = this.id
@@ -28,16 +28,17 @@ function getFranchise(id) {
     })
 }
 
-const allFranchises = []
+// const allFranchises = []
 
 // We are turning our JSON retrieved data and turning it into a JS Object in order to organize
 // and access the object more quickly for rendering dynamic JS
 class Franchise {
     constructor(obj) {
+        // debugger
         this.id = obj.id
         this.name = obj.name
         this.company = obj.company
-        allFranchises << this
+        // allFranchises << this
     }
 }
 

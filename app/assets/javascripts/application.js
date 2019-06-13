@@ -15,6 +15,5 @@
 //= require jquery_ujs
 //= require activestorage
 //= require turbolinks
-//= require franchises
 //= require_tree .
 

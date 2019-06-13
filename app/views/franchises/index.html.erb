@@ -2,7 +2,7 @@
 
 <ol>
     <%@franchises.each do |franchise|%>
-        <div id="<%= franchise.id %>"><li><%=link_to(franchise.name, franchise_path(franchise), id:franchise.id)%> -   <%= franchise.company %></li></div>
+        <div id="<%= franchise.id %>"><li><%=link_to(franchise.name, franchise_path(franchise), id:franchise.id, class:'fran')%> -   <%= franchise.company %></li></div>
     <%end%>
 </ol>
 
