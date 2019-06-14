@@ -41,6 +41,7 @@ function getAdventure(id) {
         // debugger
         console.log("This adventure is: ", data)
         let myAdventure = new Adventure(data)
+        // debugger
         let myAdventureHTML = myAdventure.postHTML()
         $(`li#${id}`).append(myAdventureHTML)
     })
@@ -53,23 +54,37 @@ class Adventure {
         this.name = obj.name
         this.location = obj.location
         this.description = obj.description
+        this.villain = obj.villain.name
+        this.franchise_name = obj.franchise.name
+        this.franchise_company = obj.franchise.company
     }
 }
 
 //Fancy Prototype method to format Adventure JS Object's HTML for DOM reveal/show
 Adventure.prototype.postHTML = function () {
+    // debugger
     return (`
     <div id='drop_down'>
-        <h3>${this.name}</h3>
-        <h6>${this.location}</h6>
-        <p>${this.description}</p>
+        <h3 id="Adv_Name">${this.name}</h3>
+        <h6>Location: ${this.location}</h6>
+        <p>Description: ${this.description}</p>
+        <p>Villain: ${this.villain}</p>
+        <p>Of the ${this.franchise_name} Franchise</p>
+        <p>Owned by: ${this.franchise_company}</p>
+        
     `)
 }
 
+// listen for click on opened-up index-show Adventure
+    $("div#drop_down").on('click', function (event) {
+        event.preventDefault()
+        // debugger
+        console.log("this is working!")
+        
+    })
+
 // Transplant of line 5
 }); 
-
-// End of turbolinks ready
 
 
 
