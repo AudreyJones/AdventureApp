@@ -1,5 +1,5 @@
 class AdventureSerializer < ActiveModel::Serializer
-  attributes :name, :location, :description
+  attributes :id, :name, :location, :description
   # Associations
   belongs_to :franchise
   belongs_to :user
