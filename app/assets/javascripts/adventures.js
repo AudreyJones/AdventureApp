@@ -2,11 +2,14 @@ document.addEventListener("turbolinks:load", function() {
     $(function () {
     console.log("LOADED: adventure.js")
     listenForClick()
-    });
+   
 
 // Use JSON data to generate JSON items
+// Listener for Adventure Index items - Show JS Function
 function listenForClick() {
-    $("a.adv").one('click', function (event) {
+    // debugger
+    $("a#list_item.list_item").click(function (event) {
+        debugger
         event.preventDefault()
         $('div#drop_down').remove()
         var id = this.id
@@ -14,7 +17,7 @@ function listenForClick() {
     })
 }
 
-// Listener for new form submission:
+// Listener for New Adventure Form submission:
     $(`form#new_adventure`).on('submit', function(e) {
         e.preventDefault()
             // this = the form itself!
@@ -62,8 +65,14 @@ Adventure.prototype.postHTML = function () {
         <h3>${this.name}</h3>
         <h6>${this.location}</h6>
         <p>${this.description}</p>
-        
     `)
 }
 
+// Transplant of line 5
+}); 
+
+// End of turbolinks ready
 })
+
+
+

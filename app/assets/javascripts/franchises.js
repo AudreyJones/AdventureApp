@@ -4,10 +4,14 @@ document.addEventListener("turbolinks:load", function() {
     listenForClick()
     });
 
+    
 // Use JSON data to generate JSON items
 function listenForClick() {
-    $("a.fran").on('click', function (event) {
+    // debugger
+    console.log('listenForClick')
+    $(`li a#list_item.list_item`).on('click', function (event) {
         event.preventDefault()
+        
         $('div#drop_down').remove()
         var id = this.id
         getFranchise(id)
