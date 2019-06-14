@@ -71,7 +71,6 @@ Adventure.prototype.postHTML = function () {
         <p>Villain: ${this.villain}</p>
         <p>Of the ${this.franchise_name} Franchise</p>
         <p>Owned by: ${this.franchise_company}</p>
-        
     `)
 }
 
