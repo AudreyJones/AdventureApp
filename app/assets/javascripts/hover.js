@@ -1,8 +1,6 @@
-document.addEventListener("turbolinks:load", function() {
     $(function () {
     console.log("LOADED: hover.js")
     listenForAction()
-    });
 
 function listenForAction() {
 
@@ -25,9 +23,8 @@ function showIndex(index_name) {
         console.log("This index contains: ", data)
         let content = `<h1>${index_name.charAt(0).toUpperCase()+ index_name.slice(1).slice(0, -1)} Index</h1>`
         data.forEach(function (list_item) {
-            content += `<li id="${list_item.id}"><a class='list_item' id='list_item'>${list_item.name}</a></li>`
+            content += `<li id="${list_item.id}"><a class='list_item' id='${list_item.id}'>${list_item.name}</a></li>`
         })
-
         // replace current wrapper div with Index!
         $(`div.wrapper`).html(content)
     })

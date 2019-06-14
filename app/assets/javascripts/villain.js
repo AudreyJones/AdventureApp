@@ -1,8 +1,7 @@
-document.addEventListener("turbolinks:load", function() {
     $(function () {
     console.log("LOADED: villain.js")
     listenForClick()
-    });
+
 
 // Use JSON data to generate JSON items
 function listenForClick() {
