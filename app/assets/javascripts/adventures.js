@@ -6,7 +6,7 @@ $(function () {
 // Listener for Adventure Index items - Show JS Function
 
     $(document).on('click', "a.list_item", function (event) {
-        debugger
+        // debugger
         event.preventDefault()
         $('div#drop_down').remove()
         var id = this.id
@@ -38,7 +38,7 @@ function getAdventure(id) {
         method: 'get',
         dataType: 'json'
     }).done(function (data) {
-        debugger
+        // debugger
         console.log("This adventure is: ", data)
         let myAdventure = new Adventure(data)
         let myAdventureHTML = myAdventure.postHTML()
