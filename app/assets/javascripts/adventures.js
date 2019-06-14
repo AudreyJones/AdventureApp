@@ -6,7 +6,7 @@ document.addEventListener("turbolinks:load", function() {
 
 // Use JSON data to generate JSON items
 function listenForClick() {
-    $("a.adv").on('click', function (event) {
+    $("a.adv").one('click', function (event) {
         event.preventDefault()
         $('div#drop_down').remove()
         var id = this.id
@@ -17,11 +17,9 @@ function listenForClick() {
 // Listener for new form submission:
     $(`form#new_adventure`).on('submit', function(e) {
         e.preventDefault()
-        // console.log("submitting adventure")
-        // debugger
-            // this is the form itself!
+            // this = the form itself!
         const values = $(this).serialize()
-
+        // Send AJAX Post request
         $.post('/adventures', values)
         .done(function (data) {
             // Provides us a nice JSON-formatted object containing all of our form data!
@@ -62,9 +60,9 @@ Adventure.prototype.postHTML = function () {
     return (`
     <div id='drop_down'>
         <h3>${this.name}</h3>
-        <p>${this.location}</p>
+        <h2>${this.location}</h2>
         <p>${this.description}</p>
-    </div>
+        
     `)
 }
 
