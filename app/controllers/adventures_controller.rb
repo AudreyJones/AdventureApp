@@ -32,7 +32,8 @@ class AdventuresController < ApplicationController
             redirect_to new_adventure_path, alert: errors.join(", ")
         else
             @adventure.save
-            redirect_to adventure_path(@adventure)
+            # redirect_to adventure_path(@adventure)
+            render json: @adventure
         end
     end
 
