@@ -60,7 +60,7 @@ Adventure.prototype.postHTML = function () {
     return (`
     <div id='drop_down'>
         <h3>${this.name}</h3>
-        <h2>${this.location}</h2>
+        <h6>${this.location}</h6>
         <p>${this.description}</p>
         
     `)

@@ -28,8 +28,6 @@ function getFranchise(id) {
     })
 }
 
-// const allFranchises = []
-
 // We are turning our JSON retrieved data and turning it into a JS Object in order to organize
 // and access the object more quickly for rendering dynamic JS
 class Franchise {
@@ -38,7 +36,6 @@ class Franchise {
         this.id = obj.id
         this.name = obj.name
         this.company = obj.company
-        // allFranchises << this
     }
 }
 
