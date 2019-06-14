@@ -15,7 +15,7 @@ function listenForAction() {
         // })      
 
     // User clicks index button and shows index page
-            $("li.nav").on("click", function (event) {
+            $("a.nav").on("click", function (event) {
                 event.preventDefault()
                 // debugger
                 // $(content).
@@ -52,9 +52,9 @@ function showIndex(index_name) {
         dataType: 'json'
     }).done(function (data) {
         console.log("This index contains: ", data)
-        let content = ""
+        let content = `<h1>${index_name.charAt(0).toUpperCase()+ index_name.slice(1).slice(0, -1)} Index</h1>`
         data.forEach(function (franchise) {
-            content += `<li id="${franchise.id}"><a>${franchise.name} - ${franchise.company}</a></li>`
+            content += `<li id="${franchise.id}"><a>${franchise.name}</a></li>`
         })
 
         //We wouldn't want to make an index model, unless it speeds things up?
