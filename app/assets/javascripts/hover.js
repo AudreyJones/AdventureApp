@@ -57,24 +57,10 @@ function showIndex(index_name) {
             content += `<li id="${franchise.id}"><a>${franchise.name}</a></li>`
         })
 
-        //We wouldn't want to make an index model, unless it speeds things up?
-        // let thisIndex = new Index(data)
-        // let thisIndexView;
-
 
         // replace current wrapper div with Index!
         $(`div.wrapper`).html(content)
     })
 }
-
-// class Index {
-//     constructor(obj) {
-//         // debugger
-//         this.id = obj.id
-//         this.name = obj.name
-//         this.location = obj.location
-//     }
-// }
-
 })
 
