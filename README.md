@@ -1,24 +1,34 @@
-# README
+# AdventureApp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a web app constructed using Ruby on Rails with added JavaScript for dynamic page rendering for the various indexes and new adventure form.
 
-Things you may want to cover:
+# Installation & Usage
 
-* Ruby version
+Clone down the AdventureApp to your Local Machine using 
 
-* System dependencies
+```ruby
+git clone https://github.com/AudreyJones/AdventureApp.git
+```
 
-* Configuration
+The AdventureApp is inside of a file titled "Rails_Project", so you can navigate to it using the following commands:
 
-* Database creation
+    $ cd Rails_Project
+    $ cd AdventureApp
 
-* Database initialization
+Start the Rails server using:
 
-* How to run the test suite
+    $ rails s
 
-* Services (job queues, cache servers, search engines, etc.)
+Happy Adventuring!
 
-* Deployment instructions
+## Contributing
 
-* ...
+Bug reports and pull requests are welcome on GitHub at https://github.com/AudreyJones/AdventureApp. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in the AdventureApp project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'AudreyJones'/AdventureApp/blob/master/CODE_OF_CONDUCT.md).
