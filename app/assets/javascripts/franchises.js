@@ -1,19 +1,18 @@
 $(function () {
     console.log("LOADED: franchise.js")
-    listenForClick()
+    
     
     // Use JSON data to generate JSON items
-    function listenForClick() {
-        // debugger
-        console.log('listenForClick')
-        $(`li a#list_item.list_item`).on('click', function (event) {
+    
+    $(document).on('click', ".franchises", function (event) {
+// console.log('listenForClick')
             event.preventDefault()
-            debugger
+            // debugger
             $('div#drop_down').remove()
-            // var id = this.id
+            var id = this.id
             getFranchise(id)
         })
-    }
+
 
 
     function getFranchise(id) {
@@ -25,6 +24,7 @@ $(function () {
             console.log("This franchise is: ", data)
             let myFranchise = new Franchise(data)
             let myFranchiseHTML = myFranchise.postHTML()
+            // debugger
             $(`div#${id}`).append(myFranchiseHTML)
         })
     }
@@ -37,15 +37,26 @@ $(function () {
             this.id = obj.id
             this.name = obj.name
             this.company = obj.company
+            this.adventures = obj.adventures
         }
     }
 
     //Fancy Prototype method to format Franchise JS Object's HTML!
     Franchise.prototype.postHTML = function () {
+        const advs= this.adventures.map(adv => {
+            debugger
+            return `<li>adv.name
+            adv.location
+            adv.description</li>`
+        }).join("")
+
+        // sort advs by name should  happen in js not ruby
+
         return (`
         <div id='drop_down'>
             <h3>${this.name}</h3>
             <p>${this.company}</p>
+            <ul>${advs}</ul>
         </div>
         `)
     }

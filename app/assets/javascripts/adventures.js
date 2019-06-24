@@ -5,7 +5,7 @@ $(function () {
 // Use JSON data to generate JSON items
 // Listener for Adventure Index items - Show JS Function
 
-    $(document).on('click', "a.list_item", function (event) {
+    $(document).on('click', ".adventures", function (event) {
         // debugger
         event.preventDefault()
         $('div#drop_down').remove()
