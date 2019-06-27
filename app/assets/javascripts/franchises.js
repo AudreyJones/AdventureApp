@@ -51,7 +51,7 @@ $(function () {
             ${adv.description}
             </li>
             `)
-        }).sort((a,b) => (a.name > b.name) ? 1 : -1).join("")
+        }).sort((a,b) => (a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0).join("")
 
         console.log(advs)
         // sort advs by name should  happen in js not ruby
