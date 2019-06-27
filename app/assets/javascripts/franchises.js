@@ -43,7 +43,7 @@ $(function () {
 
     //Fancy Prototype method to format Franchise JS Object's HTML!
     Franchise.prototype.postHTML = function () {
-        const advs = this.adventures.map(adv => {
+        const advs = this.adventures.sort((a,b) => (a.name.toUpperCase() < b.name.toUpperCase()) ? -1 : (a.name.toUpperCase() > b.name.toUpperCase()) ? 1 : 0).map(adv => {
             return (`
             <li>
             ${adv.name}
@@ -51,7 +51,7 @@ $(function () {
             ${adv.description}
             </li>
             `)
-        }).sort((a,b) => (a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0).join("")
+        }).join("")
 
         console.log(advs)
         // sort advs by name should  happen in js not ruby
