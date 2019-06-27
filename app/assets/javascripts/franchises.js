@@ -25,7 +25,7 @@ $(function () {
             let myFranchise = new Franchise(data)
             let myFranchiseHTML = myFranchise.postHTML()
             // debugger
-            $(`div#${id}`).append(myFranchiseHTML)
+            $(`a#${id}.list_item`).append(myFranchiseHTML)
         })
     }
 
@@ -43,20 +43,26 @@ $(function () {
 
     //Fancy Prototype method to format Franchise JS Object's HTML!
     Franchise.prototype.postHTML = function () {
-        const advs= this.adventures.map(adv => {
-            debugger
-            return `<li>adv.name
-            adv.location
-            adv.description</li>`
+        const advs = this.adventures.map(adv => {
+            // debugger
+            
+            return (`
+            <li>
+            ${adv.name}
+            ${adv.location}
+            ${adv.description}
+            </li>
+            `)
         }).join("")
-
+        
+        // console.log(advs)
         // sort advs by name should  happen in js not ruby
 
         return (`
         <div id='drop_down'>
             <h3>${this.name}</h3>
             <p>${this.company}</p>
-            <ul>${advs}</ul>
+            <p>${advs}</p>
         </div>
         `)
     }
